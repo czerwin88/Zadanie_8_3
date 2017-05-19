@@ -1,0 +1,274 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans")
+
+$font: "Open Sans", serif
+$primary-color: #313234
+$icon-color: #7E9FED
+$text-color: #fff
+
+*
+  box-sizing: border-box
+
+body
+  margin: 0 auto
+  font-family: 'Open Sans', serif
+
+=grid($prefix, $columns: 12)
+  @for $i from 1 through $columns
+    $size: floor((100% / ($columns / $i)) * 100) / 100
+    .#{$prefix}-#{$i}
+      width: $size
+    .#{$prefix}-offset-#{$i}
+      margin-left: $size
+
+=background($position, $size)
+  background-position: $position
+  background-size: $size
+
+=size($height, $width)
+  height: $height
+  width: $width
+
++grid('col')
+
+.container
+  max-width: 1200px
+  margin: auto
+
+section.container
+  margin-top: 50px
+  margin-bottom: 50px
+
+.row
+  &:before, &:after
+    content: ""
+    display: table
+    clear: both
+
+[class*="col-"]
+  padding: 12px
+  float: left
+
+header
+  background-color: $primary-color
+  min-height: 50px
+  text-transform: uppercase
+  > nav >
+    img
+      margin-top: 10px
+    ul
+      margin: 0
+      list-style-type: none
+      float: right
+      padding: 0
+      > li
+        display: inline-block
+        > a
+          line-height: 50px
+          padding: 0 20px
+          display: block
+          text-decoration: none
+          text-transform: uppercase
+          color: $text-color
+          &:hover
+            background-color: $icon-color
+
+/* JUMBOTRON
+
+.hero
+  background: url(https://static.pexels.com/photos/173358/pexels-photo-173358.jpeg)
+  min-height: 800px
+  +background(center, cover)
+  .slogan
+    margin-top: 100px
+    float: right
+    background-color: rgba(52, 73, 94, 0.5)
+    max-width: 800px
+    padding: 20px
+    color: $text-color
+
+.icons
+  text-align: center
+  &.icon
+    transition: .3s
+  .icon:hover
+    color: $icon-color
+    transform: scale(1.1)
+
+section.middle-header
+  text-align: center
+
+/* GALERIA
+
+.gallery
+  [class*="img"]
+    +background(center, cover)
+    height: 276px
+    padding: 0px
+  .img1
+    background-image: url(https://images.pexels.com/photos/74158/studjo-yavor-miastko-74158.jpeg?w=940&h=650&auto=compress&cs=tinysrgb)
+  .img2
+    background-image: url(http://watch-esa.pl/wp-content/uploads/2017/03/pitry.jpg)
+  .img3
+    background-image: url(https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcS3NQVn5atKa2uxP6RT1NUMwqLH8DbFvPSitN8dUK7jmq9-o7oV)
+  .img4
+    background-image: url(http://wallpaper-gallery.net/images/football-wallpapers-download/football-wallpapers-download-4.jpg)
+  .img5
+    background-image: url(http://www.newsweek.pl/g/i.aspx/680/0/newsweek/635770029243258832.jpg)
+  .img6
+    background-image: url(http://cdn4.thumbs.common.smcloud.net/common/2/2/s/22668550N2v.jpg/ru-1-r-640,0-n-22668550N2v.jpg)
+  .img7
+    background-image: url(http://bi.gazeta.pl/im/4/8660/z8660214Q,Inter-Mediolan---AC-Milan-0-1.jpg)
+  .img8
+    background-image: url(http://i.imgur.com/QWD4BoA.jpg)
+  .layer
+    width: 100%
+    height: 100%
+    display: flex
+    align-items: center
+    justify-content: center
+    background-color: rgba(0, 0, 0, 0.4)
+    background-size: cover
+    opacity: 0
+    .fa
+      border-radius: 5px
+      text-align: center
+      margin: 10px
+      width: 40px
+      height: 40px
+      background-color: $text-color
+      line-height: 40px
+      &:hover
+        cursor: pointer
+    &:hover
+      opacity: 1
+
+/* TEAM
+
+.team
+  [class*="img"]
+    +background(center, cover)
+    text-align: center
+    padding: 0
+    height: 276px
+    border-radius: 50%
+  h2
+    text-align: center
+  .img1
+    background-image: url(http://cdn.natemat.pl/59cf41f2fc78070f881f2bac0cb540d5,640,0,0,0.jpg)
+  .img2
+    background-image: url(http://blaber.pl/wp-content/uploads/2016/06/6yt4pvs4nrm1sdcx3gfn96dqite9sbpe.jpg)
+  .img3
+    background-image: url(http://www.rdc.pl/wp-content/uploads/2016/01/xAndrzej-Strejlau-700x342.jpg.pagespeed.ic.TQE1o0Q8Ko.jpg)
+  .img4
+    background-image: url(http://www.skijumping.pl/newsy/zdjecia/powieksz/malysz_wywiad_ibk_2009-01-03_05-09-54.jpg)
+  .layer
+    width: 100%
+    height: 100%
+    text-transform: uppercase
+    background-color: rgba(0, 0, 0, 0.4)
+    background-size: cover
+    opacity: 0
+    color: $text-color
+    border-radius: 50%
+    display: flex
+    align-items: center
+    justify-content: center
+    text-shadow: 3px 3px black
+    &:hover
+      opacity: 1
+      cursor: pointer
+
+/*LOWER HEADER
+
+.lower-header
+  text-align: center
+  background-color: $primary-color
+  color: $text-color
+  img
+    width: 100%
+    height: 100%
+
+/* NUMBERS
+
+.numbers
+  text-align: center
+  color: $icon-color
+  text-transform: uppercase
+  h2
+    color: $primary-color
+    font-size: 4em
+    margin: 0
+
+/* FOOTER
+
+footer
+  background-color: $primary-color
+  color: $text-color
+  h2
+    text-transform: uppercase
+    &:after
+      +size(8px, 60px)
+      content: ""
+      display: inline-block
+      border-top: 2px solid $text-color
+      margin-left: 10px
+
+div.contact b
+  text-align: left
+
+/* SOCIAL
+
+footer
+  a.fa
+    text-align: center
+    height: 50px
+    width: 50px
+    border: 0
+    font-size: 30px
+    line-height: 50px
+    cursor: pointer
+    transition: .3s
+    text-decoration: none
+    color: $text-color
+  .row .row p
+    margin: 0
+  a.fa:hover
+    background-color: $icon-color
+
+.copyright
+  text-align: center
+  background-color: black
+  color: $text-color
+  padding: 5px
+
+@media (max-width: 1119px)
+
+  +grid('col-m')
+  .gallery .layer, .team .layer
+    opacity: 1
+    background-color: transparent
+  .gallery [class*="img"]
+    height: 50vw
+  .team
+    [class*="img"]
+      height: 50vw
+    .layer p
+      font-size: 1.4rem
+      font-weight: bold
+      text-shadow: 3px 3px black
+  footer
+    text-align: center
+ 
+@media (max-width: 768px)
+  +grid('col-s')
+  header
+    nav
+      text-align: center
+    > nav > ul
+      float: none
+      > li
+        display: block
+  .gallery [class*="img"], .team [class*="img"]
+    height: 100vw
+  footer h2:after
+    display: none

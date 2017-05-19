@@ -1,0 +1,27 @@
+{
+  "name": "83",
+  "version": "1.0.0",
+  "description": "Exercise 83",
+  "main": "gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/czerwin88/Zadanie_8_3.git"
+  },
+  "keywords": [
+    "npm",
+    "js"
+  ],
+  "author": "Robert Czerwinski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/czerwin88/Zadanie_8_3/issues"
+  },
+  "homepage": "https://github.com/czerwin88/Zadanie_8_3#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-jshint": "^1.1.0"
+  }
+}
