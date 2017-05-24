@@ -25,17 +25,21 @@ module.exports = function(grunt) {
       server: {
         baseDir: "./"
       }
-	},
+	 },
  },
 	
   watch: {
-    scripts: {
+    styles: {
       files: ['sass/*.sass'],
-      tasks: ['sass'],
+      tasks: ['sass']
+    },
+    js: {
+      files: ['js/*.js'],
+      task: ['jshint'],
       options: {
         spawn: false,
       }
-	}
+	  }
   }
 
   });
