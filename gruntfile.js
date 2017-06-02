@@ -2,45 +2,48 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     sass: {
-    options: {
-  	  sourceMap: true
-    },
-    dist: {
-      files: {
-	    'css/style.css': 'sass/style.sass'
+      options: {
+        sourceMap: true
+      },
+      dist: {
+        files: {
+          'css/style.css': 'sass/style.sass'
+        }
       }
-    }
-  },
-    
+    },
+
     jshint: {
-      all: ['js/*.js']
+      all: ['js/*.js'],
+      options: {
+        force: true
+      }
     },
 
     browserSync: {
-    bsFiles: {
-      src : ['./css/*.css', './index.html']
-    },
-    options: {
-      watchTask: true,
-      server: {
-        baseDir: "./"
-      }
-	 },
- },
-	
-  watch: {
-    styles: {
-      files: ['sass/*.sass'],
-      tasks: ['sass']
-    },
-    js: {
-      files: ['js/*.js'],
-      task: ['jshint'],
+      bsFiles: {
+        src: ['./css/*.css', './index.html']
+      },
       options: {
-        spawn: false,
+        watchTask: true,
+        server: {
+          baseDir: "./"
+        }
+      },
+    },
+
+    watch: {
+      styles: {
+        files: ['sass/*.sass'],
+        tasks: ['sass']
+      },
+      js: {
+        files: ['js/*.js'],
+        tasks: ['jshint'],
+        options: {
+          spawn: false,
+        }
       }
-	  }
-  }
+    }
 
   });
 
